@@ -48,8 +48,3 @@
   notify:
     - restart nginx
 
-- name: restarting nginx service
-  ansible.builtin.systemd_service:
-    name: nginx
-    state: restarted
-    enabled: yes 

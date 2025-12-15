@@ -1,4 +1,4 @@
-- name: configure roboshop "{{ component }}" component
+- name: "configure roboshop {{ component }} component"
   become: yes
   hosts: "{{ component }}"
   roles:

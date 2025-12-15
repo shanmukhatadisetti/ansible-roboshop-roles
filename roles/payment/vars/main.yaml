@@ -1,0 +1,5 @@
+CART_HOST: cart.autonagar.in
+USER_HOST: user.autonagar.in
+RABBITMQ_HOST: rabbitmq.autonagar.in
+RABBITMQ_USER: roboshop
+RABBITMQ_PASSWORD: roboshop123

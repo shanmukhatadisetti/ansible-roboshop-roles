@@ -7,4 +7,8 @@
 - name: Installing nodejs
   ansible.builtin.dnf:
     name: nodejs
-    state: present
+    state: 
+    
+- name: Installing npm package
+  community.general.npm:
+    path: /app

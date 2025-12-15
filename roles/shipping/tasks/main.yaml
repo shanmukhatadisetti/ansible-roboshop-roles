@@ -8,21 +8,24 @@
     name: common
     tasks_from: maven-setup
 
-- name: Shipping systemd-setup
-  ansible.builtin.import_role:
-    name: common
-    tasks_from: systemd-setup
 
 
-- name: import data
+- name: importing data into 
+  tags:
+  - import
   community.mysql.mysql_db:
     name: all
-    login_user: "{{ MYSQL_ROOT_USER }}"
-    login_password: "{{ MYSQL_ROOT_PASSWORD }}"
-    login_host: "{{ MYSQL_HOST }}"
+    login_user: root
+    login_password: RoboShop@1
+    login_host: mysql.autonagar.in
     state: import
     target: "{{ item }}"
   loop:
   - /app/db/schema.sql
-  - /app/db/app-user.sql
+  - /app/db/app-user.sql 
   - /app/db/master-data.sql
+
+  - name: Shipping systemd-setup
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: systemd-setup

@@ -11,8 +11,6 @@
 
 
 - name: importing data into 
-  tags:
-  - import
   community.mysql.mysql_db:
     name: all
     login_user: root
@@ -25,7 +23,7 @@
   - /app/db/app-user.sql 
   - /app/db/master-data.sql
 
-  - name: Shipping systemd-setup
+- name: Shipping systemd-setup
   ansible.builtin.import_role:
     name: common
     tasks_from: systemd-setup

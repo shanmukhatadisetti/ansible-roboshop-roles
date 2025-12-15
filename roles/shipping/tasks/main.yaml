@@ -11,11 +11,13 @@
 
 
 - name: importing data into 
+  tags:
+  - import
   community.mysql.mysql_db:
     name: all
-    login_user: root
-    login_password: RoboShop@1
-    login_host: mysql.autonagar.in
+    login_user: "{{ MYSQL_ROOT_USER }}"
+    login_password: "{{ MYSQL_PASSWORD }}"
+    login_host: "{{ MYSQL_HOST }}"
     state: import
     target: "{{ item }}"
   loop:

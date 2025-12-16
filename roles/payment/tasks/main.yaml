@@ -36,3 +36,25 @@
     src: /tmp/payment.zip
     dest: /app
     remote_src: yes
+
+- name: Installing Python requirements
+  ansible.builtin.pip:
+    requirements: requirements.txt
+    executable: pip3.9
+  args:
+    chdir: /app
+
+- name: copying payment.service file
+  ansible.builtin.template:
+    src: payment.service.j2
+    dest: /etc/systemd/system/payment.service
+
+- name: daemon_reloading
+  ansible.builtin.systemd_service:
+    daemon_reload: true
+
+- name: Starting payment service
+  ansible.builtin.service:
+    name: payment
+    state: started
+    enabled: yes

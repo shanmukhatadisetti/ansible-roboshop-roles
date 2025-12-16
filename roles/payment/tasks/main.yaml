@@ -4,6 +4,7 @@
     name: "{{ item }}"
     state: installed 
   loop:
+  - openssh-clients
   - python3
   - gcc
   - python3-devel
